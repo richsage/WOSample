@@ -11,6 +11,7 @@ import android.webkit.WebView;
 public class WebViewFragment extends Fragment {
 
     View rootView;
+    WebView webView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,16 +22,20 @@ public class WebViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        if (rootView == null) {
+            rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+            loadWebView();
+        }
+        else {
+            ((ViewGroup) rootView.getParent()).removeView(rootView);
+        }
 
         return rootView;
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        WebView webView = (WebView) rootView.findViewById(R.id.webView);
+    protected void loadWebView() {
+        webView = (WebView) rootView.findViewById(R.id.webView);
 
         // We'll use the tab's "tag" to determine what file to load into the webview
         String htmlFile= "default.html";
