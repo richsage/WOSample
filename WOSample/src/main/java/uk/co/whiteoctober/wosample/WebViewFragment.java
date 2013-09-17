@@ -40,6 +40,7 @@ public class WebViewFragment extends Fragment {
             htmlFile = "tab2.html";
         }
 
+        webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/" + htmlFile);
     }
 }
