@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
 public class WebViewFragment extends Fragment {
@@ -40,6 +41,7 @@ public class WebViewFragment extends Fragment {
             htmlFile = "tab2.html";
         }
 
+        webView.setWebChromeClient(new WebChromeClient());
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/" + htmlFile);
     }
