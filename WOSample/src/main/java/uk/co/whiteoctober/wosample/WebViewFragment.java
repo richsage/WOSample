@@ -45,6 +45,9 @@ public class WebViewFragment extends Fragment {
         if (getTag().equals("tab-2")) {
             htmlFile = "tab2.html";
         }
+        if (getTag().equals("tab-3")) {
+            htmlFile = "topcoat-mobile-dark.html";
+        }
 
         webView.setWebChromeClient(new WebChromeClient());
         webView.getSettings().setJavaScriptEnabled(true);
