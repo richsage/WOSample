@@ -29,5 +29,6 @@ public class MainActivity extends ActionBarActivity {
         tabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
         tabHost.addTab(tabHost.newTabSpec("tab-1").setIndicator("Tab 1"), WebViewFragment.class, null);
         tabHost.addTab(tabHost.newTabSpec("tab-2").setIndicator("Tab 2"), WebViewFragment.class, null);
+        tabHost.addTab(tabHost.newTabSpec("tab-3").setIndicator("Tab 3"), WebViewFragment.class, null);
     }
 }
